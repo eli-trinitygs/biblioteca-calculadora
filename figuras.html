@@ -1,33 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figuras</title>
+    <!-- BOOTSTRAP V5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b6af8ee3c7.js" crossorigin="anonymous"></script>
+
+    <style>
+        .card {
+            min-height: 350px !important;
+        }
+    </style>
 </head>
+
 <body>
+    <main>
+        <div class="container">
+            <header class="pt-5 pb-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                    <h3 class="fs-4"><i class="fas fa-calculator fa-1x text-info"></i> Calculadora de Figuras</h3>
+                </a>
+            </header>
 
-    <header>
-        <h1>FIGURAS GEOMETRÍCAS</h1>
-        <p>Calculadora de area y perímetro de diversas Figuras</p>
-    </header>
+            <section class="p-5 mb-4 bg-dark text-white rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Figuras Geométricas</h1>
+                    <p class="col-md-8 fs-4">Calculadora de area y perímetro de diversas Figuras.</p>
+                    <!-- <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
+                </div>
+            </section>
 
-    <section>
-        <h2>Calcular área y perímetro de un cuadrado</h2>
-        <form>
-            <label for="InputCuadrado">Escribe el valor del lado de tu cuadrado: </label>
-            <input type="number" id="InputCuadrado"/>
-            <button type="button" onclick="calcularPerimetroCuadrado()">Calcular perímetro</button>
-            <button type="button" onclick="calcularAreaCuadrado()">Calcular área</button>
-        </form>
-    </section>
-    
+            <section class="row">
+                <!--CUADRADO-->
+                <div class="col-md-6 mb-3">
+                    <div class="card text-white bg-info">
+                        <div class="card-header">
+                            <h3><i class="fas fa-square"></i> Cuadrado</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <form action="">
+                                    <div class="col-md-12">
+                                        <label class="form-label" for="InputCuadrado">Escribe el valor del lado:</label>
+                                        <input class="form-control" type="number" id="InputCuadrado" />
+                                    </div>
+                                    <div class="col-md-12 pt-3 text-center">
+                                        <button class="btn btn-outline-light" type="button"
+                                            onclick="calcularPerimetroCuadrado()">Calcular perímetro</button>
+                                        <button class="btn btn-outline-light" type="button"
+                                            onclick="calcularAreaCuadrado()">Calcular área</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-md-6" id="totalPerimetroCuadrado"></div>
+                                <div class="col-md-6" id="totalAreaCuadrado"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--TRIANGULO-->
+                <div class="col-md-6 mb-3">
+                    <div class="card text-white bg-warning">
+                        <div class="card-header">
+                            <h3><i class="fas fa-mountain"></i> Triángulo</h3>
+                        </div>
+                        <div class="card-body">
+
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="InputLadoUno">Escribe el valor del lado
+                                            1:</label>
+                                        <input class="form-control" type="number" id="InputLadoUno" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="InputLadoDos">Escribe el valor del lado
+                                            2:</label>
+                                        <input class="form-control" type="number" id="InputLadoDos" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="InputBase">Escribe el valor de la base:</label>
+                                        <input class="form-control" type="number" id="InputBase" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="InputAltura">Escribe el valor de la
+                                            altura:</label>
+                                        <input class="form-control" type="number" id="InputAltura" />
+                                    </div>
+
+                                    <div class="col-md-12 pt-3 text-center">
+                                        <button class="btn btn-outline-light" type="button"
+                                            onclick="calcularPerimetroTriangulo()">Calcular perímetro</button>
+                                        <button class="btn btn-outline-light" type="button"
+                                            onclick="calcularAreaTriangulo()">Calcular área</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-md-6" id="totalPerimetroTriangulo"></div>
+                                <div class="col-md-6" id="totalAreaTriangulo"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CIRCULO -->
+                <div class="col-md-6 mb-3">
+                    <div class="card text-white bg-danger">
+                        <div class="card-header">
+                            <h3><i class="fas fa-circle"></i> Círculo</h3>
+                        </div>
+                        <div class="card-body">
+
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="InputRadio">Escribe el valor del radio:</label>
+                                        <input class="form-control" type="number" id="InputRadio" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Valor de PI:</p>
+                                        <p>13.1415</p>
+                                    </div>
+
+                                    <div class="col-md-12 pt-3 text-center">
+                                        <button class="btn btn-outline-light" type="button"
+                                            onclick="calcularDiametroCirculo()">Diámetro</button>
+                                            <button class="btn btn-outline-light" type="button"
+                                            onclick="calcularPerimetroCirculo()">Calcular perímetro</button>
+                                        <button class="btn btn-outline-light" type="button"
+                                            onclick="calcularAreaCirculo()">Calcular área</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-md-4" id="totalDiametroCirculo"></div>
+                                <div class="col-md-4" id="totalPerimetroCirculo"></div>
+                                <div class="col-md-4" id="totalAreaCirculo"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
+            </section>
+
+        </div>
+    </main>
 
 
     <!-- JS -->
     <script src="figuras.js"></script>
+    <!-- BOOTSTRAP 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>
