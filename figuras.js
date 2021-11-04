@@ -78,4 +78,40 @@ function calcularAreaCirculo() {
     const totalArea = document.getElementById('totalAreaCirculo').innerHTML = `<h4>Área: ${area}</h4>`;
 }
 
+//Calculo para triangulo isoseles
+
+// La función debe recibir, como parámetros,
+// la longitud de los 3 lados del triángulo.
+// La función debe validar que la longitud 
+//de los 3 lados del triángulo corresponden a un triángulo isósceles.
+// La función debe retornar la altura del triángulo.
+
+// Pista: la función Math.sqrt de JavaScript 
+// puede ayudarte a calcular raíces cuadradas.
+
+function alturaTrianguloIsosceles(valorUnoLadoA, valorUnoLadoB, valorUnoLadoBase) {
+    if (valorUnoLadoA != valorUnoLadoB) {
+        console.error("Los lados a y b no son iguales");
+    } else {
+        const valorNuevoLadoB = valorUnoLadoBase / 2;
+        const valorNuevoLadoBase = valorUnoLadoA;
+
+        const valorNuevoLadoBCuadrado = valorNuevoLadoB * valorNuevoLadoB;
+        const valorNuevoLadoBaseCuadrado = valorNuevoLadoBase * valorNuevoLadoBase;
+
+        const valorNuevoLadoA = Math.sqrt(valorNuevoLadoBaseCuadrado - valorNuevoLadoBCuadrado);
+
+        const valorUnoAltura = valorNuevoLadoA;
+        return valorUnoAltura;
+    }
+}
+function alturaIsosceles() {
+    const inputLadoA = parseInt(document.getElementById('inputLadoA').value);
+    const inputLadoB = parseInt(document.getElementById('inputLadoB').value);
+    const inputLadoC = parseInt(document.getElementById('inputLadoC').value);
+
+    const valorAltura = alturaTrianguloIsosceles(inputLadoA, inputLadoB, inputLadoC)
+    const totalAltura = document.getElementById('totalAlturaIsosceles').innerHTML = `<h4>Altura: ${valorAltura}</h4>`;
+}
+
 
